@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .third
+{
+    position: absolute;
+    top: 0;
+    right: -150px;
+    width: 150px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.third > li
+{
+    height: 30px;
+    background: #999999;
+}
+.third > li:hover { background: #CCCCCC; }
+
+.second
+{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 150px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.second > li
+{
+    position: relative;
+    height: 30px;
+    background: #999999;
+}
+.second > li:hover {
+   background: #CCCCCC;
+ }
+.top
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top > li
+{
+    position: relative;
+    float: left;
+    height: 30px;
+    width: 150px;
+    background: #999999;
+}
+.top > li:hover { background: #CCCCCC; }
+
+.top li:hover > ul
+{
+    display: inline;
+}
+.top a
+{
+    font: bold 14px Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0 0 0 10px;
+    display: block;
+    line-height: 30px;
+}
+.top a:hover { color: #000000; }
+}
+    </style>
+  </head>
+  <body>
+    <div class="all">
+    <ul class="top">
+    <li>
+        <a href="./display">select categories</a>
+        <ul class="second">
+            <li><a href="#">Price filter</a>
+              <ul class="third">
+                  <li><a href="./pricefilter{{ 500 }}">500</a></li>
+                  <li><a href="./pricefilter{{ 1000 }}">1000</a></li>
+                  <li><a href="./pricefilter{{ 2000 }}">2000</a></li>
+                  <li><a href="./pricefilter{{ 5000 }}">5000</a></li>
+                  <li><a href="./pricefilter{{ 10000 }}">10000</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Ratings filter</a>
+              <ul class="third">
+                  <li><a href="./ratingfilter{{ 1 }}">1.0 out of 5 stars</a></li>
+                  <li><a href="./ratingfilter{{ 2 }}">2.0 out of 5 stars</a></li>
+                  <li><a href="./ratingfilter{{ 3 }}">3.0 out of 5 stars</a></li>
+                  <li><a href="./ratingfilter{{ 4 }}">4.0 out of 5 stars</a></li>
+                  <li><a href="./ratingfilter{{ 5 }}">5.0 out of 5 stars</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Average price</a>
+              <ul class="third">
+                  <li><a href="./pricefilter{{ 5000 }}">5000</a></li>
+
+              </ul>
+            </li>
+            <li><a href="#">Average Ratings</a>
+              <ul class="third">
+                  <li><a href="./ratingfilter{{ 3 }}">3.0 out of 5 stars</a></li>
+              </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<table border="1">
+  <tr>
+    <th>Product Name</th>
+    <th>Product URL</th>
+    <th>Reviews</th>
+    <th>Review Count</th>
+    <th>Price</th>
+    <th>Image URL</th>
+    <th>Category</th>
+    <th>Sub Category</th>
+  </tr>
+  {% for data in obj %}
+  <tr>
+    <td>{{ data.Product_Name }}</td>
+    <td>{{ data.Product_URL }}</td>
+    <td>{{ data.Reviews }}</td>
+    <td>{{ data.Review_Count }}</td>
+    <td>{{ data.Price }}</td>
+    <td>{{ data.Image_URL }}</td>
+    <td>{{ data.Category }}</td>
+    <td>{{ data.Sub_Category }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+<body>

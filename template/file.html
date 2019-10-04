@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>File Uploading</title>
+    <style media="screen">
+      .file{
+        margin: 1% 30%;
+        border: solid 1px blue;
+        border-radius: 10px;
+        text-align: center;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body bgcolor="lightyellow">
+    <div class="file">
+    <form action="" enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      <label for="fl">File Upload</label>
+      <input type="file" id="fl" name="csv_file1">
+      <input type="submit" value="upload">
+    </form>
+    </div>
+  </body>
+</html>
